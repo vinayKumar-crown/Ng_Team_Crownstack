@@ -1,4 +1,4 @@
-# Ng_Team_Crownstack
+# Ng Team Crownstack
 
 ## Documents
 
@@ -8,4 +8,4 @@
 
 ## Folder of Angular
 
-    1. Themes POC: 
+    1. Themes POC: <a href="/NgCsLearn/src/app/theme/README.md">Link</a>
