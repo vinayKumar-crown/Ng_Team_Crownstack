@@ -1,0 +1,60 @@
+@import "../scss/variables";
+@import "../scss/button";
+@import "../scss/anchor";
+@import "../scss/input";
+@import "../scss/table";
+
+.guidelines-intro {
+    p{
+        font-size: 14px;
+        font-family: $font-family;
+        color: $text-color;
+        margin: 4px 0;
+    }
+}
+.input-guidelines {
+  h6.input-sub-head {
+    font-size: 14px;
+    color: $text-color;
+    margin: 8px 0;
+    font-family: $font-family;
+  }
+  .inputs {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    .flexMargin {
+      flex: 0 1 30%;
+      margin-right: 6px;
+      margin-bottom: 5px;
+    }
+  }
+}
+.anchor-guidelines {
+  h6.anchor-sub-head {
+    font-size: 14px;
+    color: $text-color;
+    margin: 8px 0;
+    font-family: $font-family;
+  }
+}
+.table-guidelines {
+  h6.table-sub-head {
+    font-size: 14px;
+    color: $text-color;
+    margin: 8px 0;
+    font-family: $font-family;
+  }
+}
+.button-guidelines {
+  h6.button-sub-head {
+    font-size: 14px;
+    color: $text-color;
+    margin: 8px 0;
+    font-family: $font-family;
+  }
+  button {
+    margin-right: 8px;
+    margin-bottom: 8px;
+  }
+}

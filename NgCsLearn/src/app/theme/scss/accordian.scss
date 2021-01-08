@@ -1,0 +1,51 @@
+.accordian-container {
+  // list-style-type: none;
+  margin: 0px;
+  padding-left: 20px;
+  font-family: $font-family;
+  font-size: 16px;
+  color: $text-color;
+  li.accordian {
+    padding: 8px 4px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    &.open .accordian-head {
+      padding-bottom: 7px;
+      border-bottom: 1px solid $border-color;
+      span::before {
+        content: "-";
+      }
+    }
+    &.close .accordian-head {
+      padding-bottom: 0px;
+      border-bottom: 0px;
+      span::before {
+        content: "+";
+      }
+    }
+    &.close .accordian-data {
+      display: none;
+    }
+    &.open .accordian-data {
+      display: block;
+    }
+    .accordian-head {
+      font-weight: 500;
+      cursor: pointer;
+      span {
+        font-size: 20px;
+        padding: 4px;
+        height: 15px;
+        text-align: center;
+        width: 15px;
+        line-height: 15px;
+        float: right;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        &:hover {
+          border-color: $border-color;
+        }
+      }
+    }
+  }
+}

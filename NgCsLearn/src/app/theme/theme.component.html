@@ -1,0 +1,122 @@
+<div class="theme-component">
+    <div class="theme-head">
+        <h2>Themes Concept</h2>
+        <p>Themes are the most important part in Web Applications. Through this we can provide different colors, fonts
+            and sizes on every HTML tag. This also help you to utlize your CSS code in proper place.</p>
+    </div>
+    <hr/>
+    <div class="change-theme">
+        <div>Change Theme From This Dropdown:</div>
+        <div>
+            <select [(ngModel)]="selectedTheme" (change)="changingTheme()">
+                <option value="" selected disabled>Select Theme</option>
+                <option value="light">Light Theme</option>
+                <option value="dark">Dark Theme</option>
+            </select>
+        </div>
+    </div>
+    <hr/>
+    <div class="theme-requirement">
+        <h2>What are the requirements for Theme creation?</h2>
+        <ul class="accordian-container">
+            <li class="accordian" [ngClass]="{'open': openGuidelines, 'close': !openGuidelines}">
+                <div class="accordian-head" (click)="openGuidelines = !openGuidelines;">
+                    Design Guidelines
+                    <span></span>
+                </div>
+                <div class="accordian-data">
+                    <app-guidelines></app-guidelines>
+                </div>
+            </li>
+            <li class="accordian" [ngClass]="{'open': variableCreation, 'close': !variableCreation}">
+                <div class="accordian-head" (click)="variableCreation = !variableCreation;">
+                    CSS/SCSS Variable Creation
+                    <span></span>
+                </div>
+                <div class="accordian-data">
+                    <div class="variables-intro">
+                        <p>Variable creation is the most important part of Theme. You have to choose wisely which variables can participate in Theme creation. Now we have two types of variables in Angular:</p>
+                        <p>
+                            1.  CSS variables. These we can define in the root of project. It works only globally. You can use it like this.
+                        </p>
+                        <pre>
+                            {{':root {
+                                --varName: value;
+                                --varName1: value;
+                            }
+                            .className {
+                                color: var(--varName);
+                            }'}}
+                        </pre>
+                        <pre>
+                            {{'document.documentElement.style.setProperty(\'--varName\', \'value\')'}}
+                        </pre>
+                        <pre>
+                            {{':host {
+                                --varName: value;
+                                --varName1: value;
+                            }
+                            .className {
+                                color: var(--varName);
+                            }'}}
+                        </pre>
+                        <pre>
+                            {{'this.elementRef.nativeElement.style.setProperty(\'--varName\', \'value\')'}}
+                        </pre>
+                        <p>
+                            2.  SCSS variables. These we can define anywhere in project. You can use it like this. There values can not be changed through Javascript.
+                        </p>
+                        <pre>
+                            $varName: value;
+                            {{
+                                '.className {
+                                    color: $varName
+                                }'
+                            }}
+                        </pre>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="theme-management">
+        <h2>How to manage theme?</h2>
+        <ul class="accordian-container">
+            <li class="accordian" [ngClass]="{'open': fromScratch, 'close': !fromScratch}">
+                <div class="accordian-head" (click)="fromScratch = !fromScratch;">
+                    From Scratch
+                    <span></span>
+                </div>
+                <div class="accordian-data">
+                    <div class="from-scratch">
+                        <p>If you are not using any online built theme and thinking for preparing it from start, then you must get the design guidelines. Because these guidelines will help you to add each style property individually. You can manage theme from start like this:</p>
+                        <p>1. Create theme folder in root of project.</p>
+                        <p>2. Create variables.scss file. Here you will add all variables.</p>
+                        <p>3. Now get understanding from design guidelines and create individual files according to those.</p>
+                        <p>4. Here I have created these files: variables, button, input, accordian, table, anchor etc.</p>
+                        <p>5. Similarly you can create these files.</p>
+                        <p>6. Import directly these files whereever you need.</p>
+                        <p>7. @import "path of file"</p>
+                    </div>
+                </div>
+            </li>
+            <li class="accordian" [ngClass]="{'open': fromCustomize, 'close': !fromCustomize}">
+                <div class="accordian-head" (click)="fromCustomize = !fromCustomize;">
+                    From Customization
+                    <span></span>
+                </div>
+                <div class="accordian-data">
+                    <div class="fromCustomize">
+                        <p>Each created build has ability to customize. So check wether we can do it or not. The online available themes are Bootstrap, Material and many more. Here I am defining customization for Bootstrap:</p>
+                        <p>1. Customizing from Bootstrap You can study here: <a class="anchor" href="https://getbootstrap.com/docs/4.0/getting-started/theming/" target="_blank">Link</a></p>
+                        <p>2. You can check the custom-bootstrap.scss for reference.</p>
+                        <p>3. Only drawback in Bootstrap Customization is we can make it Dark and Light theme from varables. We have to create two separate files for that and load each according to enabled one.</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="note">
+        As Themes have more than above things. So try to introduce in your projects for future and get proficency in that. Also the folder and file structure is according to requirements you can think and create your ones. This is just for POC so don't follow this.
+    </div>
+</div>

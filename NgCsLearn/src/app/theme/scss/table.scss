@@ -1,0 +1,55 @@
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-family: $font-family;
+  color: $text-color;
+  &.table-striped tbody tr:nth-of-type(odd) {
+    background-color: $table-strip-color;
+  }
+  thead {
+    tr {
+      th {
+        padding: 0.75rem;
+        font-size: 14px;
+        font-weight: 600;
+        vertical-align: middle !important;
+        border: 0px !important;
+        text-align: left;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      td {
+        padding: 0.75rem;
+        font-size: 13px;
+        border: 0px !important;
+        vertical-align: middle !important;
+        a.anchor,
+        span.anchor {
+          font-weight: 500 !important;
+        }
+      }
+      &:hover {
+        background-color: $table-hover-color !important;
+      }
+    }
+  }
+
+  tfoot {
+    tr {
+      td {
+        font-size: 14px;
+        text-align: center;
+        font-weight: 600;
+        border: 0px !important;
+      }
+    }
+  }
+}

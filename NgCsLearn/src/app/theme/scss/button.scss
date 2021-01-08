@@ -1,0 +1,84 @@
+@mixin button-hover($bgColor, $textColor) {
+  background-color: $bgColor;
+  color: $textColor;
+  border-color: $bgColor;
+  transition: 0.5s all;
+}
+@mixin button-focus($bgColor, $textColor) {
+  @include button-hover($bgColor, $textColor);
+}
+@mixin button-disabled($bgColor, $textColor, $borderColor) {
+  color: $textColor;
+  background-color: $bgColor;
+  border-color: $borderColor;
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+@mixin button-colors($textColor, $bgColor, $borderColor) {
+  color: $text-color;
+  background-color: $bgColor;
+  border-color: $borderColor;
+  &:hover {
+    @include button-hover($textColor, $bgColor);
+  }
+  &:focus {
+    @include button-focus($textColor, $bgColor);
+  }
+  &:disabled {
+    @include button-disabled($bgColor, $textColor, $borderColor);
+  }
+}
+button {
+  padding: 7px 12px;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  font-family: $font-family;
+  &.small {
+    height: 20px;
+    font-size: 11px;
+    line-height: 6px;
+  }
+  &.medium {
+    height: 35px;
+    font-size: 14px;
+  }
+  &.large {
+    height: 50px;
+    font-size: 17px;
+  }
+  &.primary {
+    @include button-colors($text-color, $body-color, $body-color);
+  }
+  &.success {
+    @include button-colors($text-color, $success-color, $success-color);
+  }
+  &.danger {
+    @include button-colors($text-color, $danger-color, $danger-color);
+  }
+  &.warning {
+    @include button-colors($text-color, $warning-color, $warning-color);
+  }
+  &.info {
+    @include button-colors($text-color, $info-color, $info-color);
+  }
+  &.primary-outline {
+    @include button-colors($text-color, $body-color, $text-color);
+  }
+  &.success-outline {
+    @include button-colors($success-color, $body-color, $success-color);
+  }
+  &.danger-outline {
+    @include button-colors($danger-color, $body-color, $danger-color);
+  }
+  &.warning-outline {
+    @include button-colors($warning-color, $body-color, $warning-color);
+  }
+  &.info-outline {
+    @include button-colors($info-color, $body-color, $info-color);
+  }
+}

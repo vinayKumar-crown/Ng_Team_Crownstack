@@ -1,0 +1,40 @@
+.anchor {
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: $font-family;
+  vertical-align: middle;
+  color: $link-color !important;
+  text-decoration: none;
+}
+.anchor:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: $text-color;
+  height: 2px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.anchor:hover:before,
+.anchor:focus:before,
+.anchor:active:before {
+  right: 0;
+}
+.anchor:hover {
+  text-decoration: none !important;
+}

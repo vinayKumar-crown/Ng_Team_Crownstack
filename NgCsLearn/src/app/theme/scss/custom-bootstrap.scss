@@ -1,0 +1,34 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+:host {
+  --fonts: "Roboto";
+  --body-color: #e0e5ec;
+  --link-color: #282c34;
+  --border-color: #282c34;
+  --text-color: #282c34;
+}
+
+$bg-color: var(--body-color);
+$body-color: var(--body-color);
+$link-color: var(--link-color);
+$text-color: var(--text-color);
+$font-family: var(--fonts);
+$border-color: var(--border-color);
+$font-family-base: var(--fonts);
+$font-family-sans-serif: var(--fonts);
+$font-family-monospace: var(--fonts);
+$success-color: #28a745;
+$danger-color: #dc3545;
+$warning-color: #ffc107;
+$info-color: #17a2b8;
+$theme-colors: (
+  "primary": #e0e5ec,
+  "danger": $danger-color,
+  "success": $success-color,
+  "warn": $warning-color,
+  "info": $info-color,
+);
+
+@import "node_modules/bootstrap/scss/bootstrap";
