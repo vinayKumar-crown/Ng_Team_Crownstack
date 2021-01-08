@@ -8,4 +8,4 @@
 
 ## Folder of Angular
 
-    1. Themes POC: <a href="/NgCsLearn/src/app/theme/README.md">Link</a>
+    1. Themes POC
