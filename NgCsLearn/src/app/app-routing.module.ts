@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./theme/theme.module').then(m => m.ThemeModule),
   },
   {
+    path: 'support',
+    loadChildren: () => import('./support/support.module').then(m => m.SupportModule),
+  },
+  {
     path: '',
     redirectTo: 'theme',
     pathMatch: 'full'
