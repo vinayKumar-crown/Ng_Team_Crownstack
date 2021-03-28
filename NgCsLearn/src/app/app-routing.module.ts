@@ -7,8 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./theme/theme.module').then(m => m.ThemeModule),
   },
   {
-    path: 'support',
-    loadChildren: () => import('./support/support.module').then(m => m.SupportModule),
+    path: 'shadowDom',
+    loadChildren: () => import('./shadow-dom/shadow-dom.module').then(m => m.ShadowDomModule)
+  },
+  {
+    path: 'encapsulation',
+    loadChildren: () => import('./encapsulation/encapsulation.module').then(m => m.EncapsulationModule)
   },
   {
     path: '',

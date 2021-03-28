@@ -1,0 +1,17 @@
+@import "../theme/scss/variables";
+
+.encapsulation {
+  padding: 10px;
+  h2 {
+    font-family: $font-family;
+    margin: 8px 0;
+    text-align: center;
+    border-bottom: 1px solid $body-color;
+    padding-bottom: 10px;
+  }
+  h4 {
+    font-family: $font-family;
+    margin: 5px 0;
+    color: red;
+  }
+}
