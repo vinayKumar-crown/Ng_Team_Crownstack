@@ -1,19 +1,12 @@
-@import "../theme/scss/variables";
+@import "../../theme/scss/variables";
 
 .shadow-dom {
-  padding: 10px;
-  h2 {
-    font-family: $font-family;
-    margin: 8px 0;
-    text-align: center;
-    border-bottom: 1px solid $body-color;
-    padding-bottom: 10px;
-  }
   .heading-example {
     margin: 5px 0;
     h4 {
       font-family: $font-family;
       margin: 5px 0;
+      font-size: 14px;
     }
     p {
       font-family: $font-family;
@@ -26,6 +19,7 @@
     h4 {
       font-family: $font-family;
       margin: 5px 0;
+      font-size: 14px;
     }
     article {
       font-family: $font-family;

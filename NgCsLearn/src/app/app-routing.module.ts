@@ -7,8 +7,8 @@ const routes: Routes = [
     loadChildren: () => import('./theme/theme.module').then(m => m.ThemeModule),
   },
   {
-    path: 'shadowDom',
-    loadChildren: () => import('./shadow-dom/shadow-dom.module').then(m => m.ShadowDomModule)
+    path: 'wc',
+    loadChildren: () => import('./web-component/web-component.module').then(m => m.WebComponentModule)
   },
   {
     path: 'encapsulation',

@@ -1,0 +1,36 @@
+<div class="templates">
+    <div class="example-1">
+        <h4>Basic Example:</h4>
+        <ng-template>
+            <button class="primary">Click Me!</button>
+        </ng-template>
+        <p>Nothing will appear here. Because ng-templates doesn't render untill you calls them.</p>
+    </div>
+    <div class="example-2">
+        <h4>Template Usage:</h4>
+        <ng-container *ngIf="example_2_view.length && !(loading$|async);else loadingTemp;">
+            <div class="usage" *ngFor="let data of example_2_view;">
+                <div class="">{{data.name}}</div>
+                <div class="">{{data.email}}</div>
+            </div>
+        </ng-container>
+        <ng-template #loadingTemp>
+            Loading............
+        </ng-template>
+    </div>
+    <div class="example-3">
+        <h4>Dynamic Template:</h4>
+        <ng-container *ngIf="example_2_view.length && !(loading$|async);else loadingTemp;">
+            <div class="usage" *ngFor="let data of example_2_view;">
+               <ng-template *ngTemplateOutlet="userData;context: data"></ng-template>
+            </div>
+        </ng-container>
+        <ng-template #userData let-name="name" let-email="email">
+            <div class="">{{name}}</div>
+            <div class="">{{email}}</div>
+        </ng-template>
+        <ng-template #loadingTemp>
+            Loading............
+        </ng-template>
+    </div>
+</div>

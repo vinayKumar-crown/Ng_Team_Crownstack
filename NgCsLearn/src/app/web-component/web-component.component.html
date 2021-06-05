@@ -1,0 +1,29 @@
+<div class="web-components">
+    <h2>Web Components</h2>
+    <div class="cs-el">
+        <p>Custom Elements:</p>
+        <div class="cs-el-ct">
+            <input #input value="How are you?" class="" type="text" placeholder="Enter here">
+            <button class="primary" style="margin-right: 8px;" (click)="customElementService.showAsComponent(input.value)">Show as component</button>
+            <button class="info" (click)="customElementService.showAsElement(input.value)">Show as element</button>
+        </div>
+    </div>
+    <div>
+        <hr/>
+    </div>
+    <div class="sd-dm">
+        <p>Shadow DOM:</p>
+        <div class="sd-dm-ct">
+            <app-shadow-dom></app-shadow-dom>
+        </div>
+    </div>
+    <div>
+        <hr/>
+    </div>
+    <div class="tl">
+        <p>Templates:</p>
+        <div class="tl-ct">
+            <app-templates></app-templates>
+        </div>
+    </div>
+</div>

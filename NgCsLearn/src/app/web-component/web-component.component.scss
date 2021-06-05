@@ -1,0 +1,47 @@
+@import "../theme/scss/variables";
+@import "../theme/scss/button";
+@import "../theme/scss/input";
+
+.web-components {
+  padding: 10px;
+  h2 {
+    font-family: $font-family;
+    margin: 8px 0;
+    text-align: center;
+    border-bottom: 1px solid $body-color;
+    padding-bottom: 10px;
+  }
+  hr {
+    margin: 14px 0;
+  }
+  .cs-el,
+  .sd-dm,
+  .tl {
+    p {
+      font-family: $font-family;
+      text-align: left;
+      margin-bottom: 3px;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  }
+  .cs-el {
+    .cs-el-ct {
+      margin-top: 8px;
+      input {
+        width: 30%;
+        margin-bottom: 5px;
+      }
+    }
+  }
+  .sd-dm {
+    .sd-dm-ct {
+      margin-top: 8px;
+    }
+  }
+  .tl {
+    .tl-ct {
+      margin-top: 8px;
+    }
+  }
+}
