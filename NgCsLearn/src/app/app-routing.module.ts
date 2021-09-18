@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('./encapsulation/encapsulation.module').then(m => m.EncapsulationModule)
   },
   {
+    path: 'locale',
+    loadChildren: () => import('./cs-locale/cs-locale.module').then(m => m.CsLocaleModule)
+  },
+  {
     path: '',
     redirectTo: 'theme',
     pathMatch: 'full'

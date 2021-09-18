@@ -1,0 +1,165 @@
+<div class="locale-component">
+    <div class="locale-head">
+        <h2 i18n>Locale And i18n</h2>
+        <p i18n>To make your application or website available for multiple languages and locale, you need to learn this.</p>
+        <hr />
+    </div>
+    <div class="install-step">
+        <p><b><ng-container i18n>Installation Steps</ng-container></b></p>
+        <ul>
+            <li i18n>Go to the application root.</li>
+            <li>
+                <ng-container i18n>Run this command</ng-container> <b>`ng add @angular/localize`</b>
+            </li>
+        </ul>
+    </div>
+    <div class="examples">
+        <div class="time-example">
+            <p><b><ng-container i18n>Minutes Example</ng-container>:</b></p>
+            <button class="btn btn-primary" (click)="increase()">+</button>
+            <span class="count">{{minutes | number}}</span>
+            <button [disabled]="minutes === 0" class="btn btn-primary" (click)="decrease()">-</button>
+            <span class="count-str" i18n>Updated {minutes, plural, =0 {just now} =1 {one minute ago} other {{{minutes}} minutes ago}}</span>
+        </div>
+        <div class="gender-example">
+            <p><b><ng-container i18n>Gender Example</ng-container>:</b></p>
+            <label>
+                <input type="radio" name="gender" value="male" [(ngModel)]="gender" />
+                <span i18n>Male</span>
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female" [(ngModel)]="gender" />
+                <span i18n>Female</span>
+            </label>
+            <label>
+                <input type="radio" name="gender" value="other" [(ngModel)]="gender" />
+                <span i18n>Other</span>
+            </label>
+            <p class="gender-str" i18n>The author is {gender, select, male {male} female {female} other {other}}</p>
+        </div>
+        <div class="input-example">
+            <p><b><ng-container i18n>Input Attribute Example</ng-container></b></p>
+            <div>
+                <input type="text" i18n-placeholder placeholder="Search Here" />
+            </div>
+        </div>
+        <div class="pipes-example">
+            <p><b><ng-container i18n>Angular Built In Pipes Example</ng-container></b></p>
+            <div>
+                <p><b><ng-container i18n>Date</ng-container>:</b> {{today | date: 'medium'}}</p>
+            </div>
+            <div>
+                <p><b><ng-container i18n>Number</ng-container>:</b> {{number | number : '1.0-0' : 'ar'}}</p>
+            </div>
+            <div>
+                <p><b><ng-container i18n>Currency</ng-container>:</b> {{number | currency}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="ex-cm">
+        <p>
+            <b>
+                <ng-container i18n>Extraction And Compilation</ng-container>
+            </b>
+        </p>
+        <ul class="steps">
+            <li>
+                <ng-container i18n>Go to the root folder of application and run this command</ng-container> <b>`ng extract-i18n`</b>
+            </li>
+            <li>
+                <ng-container i18n>You can specifiy these 3 option in above command</ng-container>:
+                <ul>
+                    <li>
+                        <b>`--output-path`</b> - <ng-container i18n>If you want to create extraction of language at particular place in root then specifiy this option.</ng-container> <b>`ng extract-i18n --output-path src/locale`</b>
+                    </li>
+                    <li>
+                        <b>`--format`</b> - <ng-container i18n>Extraction allow multiple formats. Like</ng-container>
+                        <b>`ng extract-i18n --format=xlf | xlf2 | json | xmb | arb`</b>
+                    </li>
+                    <li>
+                        <b>`--out-file`</b> - <ng-container i18n>You can change the name of generated file also.</ng-container> <b>`ng extract-i18n --out-file source.xlf`</b>
+                    </li>
+                </ul>
+            </li>
+            <li i18n>After extraction it will create source file of all the static strings in your application where you have added <b>`i18n`</b> attribute.</li>
+            <li>
+                <ng-container i18n>Now create copy of files in same folder and give them names according to your languages. If your application supports English, Spanish and Arabic, then your file names will be:</ng-container> <b>`sourceFile.en.xlf | sourceFile.es.xlf | sourceFile.ar.xlf`</b>
+            </li>
+            <li i18n>Now you need a good translator who can translate the text existing in these source files for you. For each format <b>xlf | xlf2 | json | xmb | arb</b> the files will give you different string formats. So understand properly before giving to translator.</li>
+        </ul>
+    </div>
+    <div class="ex-cm">
+        <p>
+            <b>
+                <ng-container i18n>Build Setup And Registering Locale</ng-container>
+            </b>
+        </p>
+        <ul class="steps">
+            <li>
+                <ng-container i18n>Registering Locale is required step. Without this <b>`number|date|currency`</b> pipes will not make proper formatting. To do that you have to use <b>`registerLocaleData`</b> in <b>`app.module.ts`</b></ng-container>
+            </li>
+            <li>
+                <ng-container i18n>For creating all languages build add following code in your application workspace config file.</ng-container>
+                <div>
+                    <code>
+                        {{"{
+                            i18n: { 
+                                sourceLocale: 'en-US', 
+                                locales: { 
+                                    es: 'src/i18n/messages.es.json', 
+                                    en: 'src/i18n/messages.en.json', 
+                                    ar: 'src/i18n/messages.ar.json' 
+                                }
+                            },
+                            build: {
+                                ...
+                                options: {
+                                    localize: true
+                                }
+                            }
+                        }"}}
+                    </code>
+                </div>
+            </li>
+            <li>
+                <ng-container i18n>To serve for particular language you have to add following code in your application workspace config.</ng-container>
+                <div>
+                    <code>
+                        {{
+                            "{
+                                configurations: {
+                                    es: {
+                                        localize: [
+                                          es
+                                        ]
+                                    },
+                                    en: {
+                                        localize: [
+                                          en
+                                        ]
+                                    },
+                                },
+                                serve: {
+                                    configurations: {
+                                        en: {
+                                            browserTarget: 'NgCsLearn:build:en'
+                                        },
+                                        es: {
+                                            browserTarget: 'NgCsLearn:build:es'
+                                        }
+                                    }
+                                }
+                            }"
+                        }}
+                    </code>
+                </div>
+            </li>
+            <li>
+                <ng-container i18n>Now you can create separate commands in <b>`package.json`</b> also. These commands will help you to run specific things directly.</ng-container>
+                <p><b>`ng serve --configuration=en`</b></p>
+                <p><b>`ng serve --configuration=es`</b></p>
+                <p><b>`ng build`</b></p>
+            </li>
+        </ul>
+    </div>
+</div>

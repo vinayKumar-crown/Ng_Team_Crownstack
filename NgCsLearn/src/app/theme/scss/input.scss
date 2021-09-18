@@ -27,7 +27,8 @@ select.valid,
 textarea.valid {
   border-color: $success-color !important;
 }
-input,
+input[type="text"],
+input[type="number"],
 select {
   @include inputStyle();
   &:focus,

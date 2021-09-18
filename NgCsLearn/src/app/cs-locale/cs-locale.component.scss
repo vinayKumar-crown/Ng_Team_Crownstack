@@ -1,0 +1,119 @@
+@import "../theme/scss/variables";
+@import "../theme/scss/button";
+@import "../theme/scss/input";
+
+.locale-component {
+  background-color: $body-color;
+  padding: 15px;
+  // height: 100%;
+  .locale-head {
+    h2 {
+      font-family: $font-family;
+      font-size: 22px;
+      text-align: center;
+      margin: 8px 0;
+      color: $text-color;
+    }
+    p {
+      font-family: $font-family;
+      font-size: 14px;
+      text-align: center;
+      margin: 0 0 4px;
+      color: $text-color;
+    }
+  }
+  .install-step {
+    p {
+      font-family: $font-family;
+      font-size: 14px;
+      margin: 0 0 4px;
+      color: $text-color;
+    }
+    ul {
+      padding-left: 20px;
+      margin: 5px;
+      li {
+        font-family: $font-family;
+        font-size: 14px;
+      }
+    }
+  }
+  .examples {
+    .time-example {
+      margin-bottom: 10px;
+      p {
+        font-family: $font-family;
+        font-size: 14px;
+        margin: 0 0 4px;
+        color: $text-color;
+      }
+      .count {
+        font-family: $font-family;
+        font-size: 14px;
+        color: $text-color;
+        margin: 0 5px;
+      }
+      .count-str {
+        font-family: $font-family;
+        font-size: 14px;
+        color: $text-color;
+        margin-left: 10px;
+      }
+    }
+    .gender-example {
+      p {
+        font-family: $font-family;
+        font-size: 14px;
+        margin: 0 0 4px;
+        color: $text-color;
+      }
+      label {
+        font-family: $font-family;
+        font-size: 14px;
+        color: $text-color;
+        &:not(:first-of-type) {
+          margin-left: 10px;
+        }
+        input {
+          vertical-align: top;
+        }
+      }
+      .gender-str {
+        font-family: $font-family;
+        font-size: 14px;
+        margin: 4px;
+        color: $text-color;
+      }
+    }
+    .pipes-example, .input-example {
+      margin-bottom: 10px;
+      p {
+        font-family: $font-family;
+        font-size: 14px;
+        margin: 0 0 4px;
+        color: $text-color;
+      }
+    }
+    .input-example {
+      input {
+        width: 250px;
+      }
+    }
+  }
+  .ex-cm {
+    p {
+      font-family: $font-family;
+      font-size: 14px;
+      margin: 0 0 4px;
+      color: $text-color;
+    }
+    .steps {
+      padding-left: 20px;
+      margin: 5px;
+      li {
+        font-family: $font-family;
+        font-size: 14px;
+      }
+    }
+  }
+}
