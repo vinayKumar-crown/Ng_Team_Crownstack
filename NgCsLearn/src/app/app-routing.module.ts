@@ -19,6 +19,10 @@ const routes: Routes = [
     loadChildren: () => import('./cs-locale/cs-locale.module').then(m => m.CsLocaleModule)
   },
   {
+    path: 'dynamic',
+    loadChildren: () => import('./dynamic-cm/dynamic-cm.module').then(m => m.DynamicCmModule)
+  },
+  {
     path: '',
     redirectTo: 'theme',
     pathMatch: 'full'
