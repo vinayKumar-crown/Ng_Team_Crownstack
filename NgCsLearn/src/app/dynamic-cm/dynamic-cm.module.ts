@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: '',
     component: DynamicCmComponent
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('../dynamic-cm-user/dynamic-cm-user.module').then(m => m.DynamicCmUserModule)
   }
 ]
 
