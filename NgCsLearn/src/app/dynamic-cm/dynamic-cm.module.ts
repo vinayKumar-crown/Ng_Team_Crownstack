@@ -9,12 +9,16 @@ import { ProfileAdComponent } from './components/profile-ad/profile-ad.component
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'ad',
     component: DynamicCmComponent
   },
   {
     path: 'user',
     loadChildren: () => import('../dynamic-cm-user/dynamic-cm-user.module').then(m => m.DynamicCmUserModule)
+  },
+  {
+    path: '',
+    redirectTo: 'ad'
   }
 ]
 

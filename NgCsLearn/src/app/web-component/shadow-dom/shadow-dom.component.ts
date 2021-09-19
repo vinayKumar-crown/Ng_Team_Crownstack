@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-shadow-dom',
   templateUrl: './shadow-dom.component.html',
   styleUrls: ['./shadow-dom.component.scss']
 })
-export class ShadowDomComponent implements OnInit {
+export class ShadowDomComponent implements OnInit, OnDestroy {
+
+  interval: any;
 
   constructor() { }
 
@@ -50,7 +52,7 @@ export class ShadowDomComponent implements OnInit {
      shadow.appendChild(text);
  
      // Update count when element content changes
-     setInterval(() => {
+     this.interval = setInterval(() => {
        const count = `Words: ${this.counting()}`;
        text.textContent = count;
      }, 200);
@@ -60,6 +62,10 @@ export class ShadowDomComponent implements OnInit {
     const element: any = document.getElementById('articleContent');
     const text = element.innerText || element.textContent;
     return text.split(/\s+/g).length;
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
   }
 
 }

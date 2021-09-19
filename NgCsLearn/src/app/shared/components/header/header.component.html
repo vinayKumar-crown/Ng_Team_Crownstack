@@ -1,0 +1,14 @@
+<div class="cs-header">
+    <div class="header-content">
+        <div class="change-theme">
+            <select [(ngModel)]="selectedTheme" (change)="changingTheme()">
+                <option value="" selected disabled>Select Theme</option>
+                <option value="light">Light Theme</option>
+                <option value="dark">Dark Theme</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="sideNav">
+    <app-sidebar></app-sidebar>
+</div>

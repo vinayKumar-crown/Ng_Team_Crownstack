@@ -1,0 +1,54 @@
+<div class="sidebar-nav">
+    <div class="sidebar-container">
+        <ul class="menu-container">
+            <ng-container *ngTemplateOutlet="menulist"></ng-container>
+        </ul>
+    </div>
+</div>
+
+<ng-template #menulist>
+    <ng-container *ngFor="let item of sidebarNav">
+        <ng-container *ngTemplateOutlet="menuitem; context:{item:item}"></ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #menuitem let-item="item">
+    <ng-container *ngIf="!item.children">
+        <ng-container *ngTemplateOutlet="withoutchildren; context:{ item:item }"></ng-container>
+    </ng-container>
+    <ng-container *ngIf="item.children">
+        <ng-container *ngTemplateOutlet="withchildren; context:{ item:item }"></ng-container>
+    </ng-container>
+</ng-template>
+
+<ng-template #withoutchildren let-item="item">
+    <li class="withoutChildren">
+        <a [routerLink]="[item.route]" routerLinkActive="active" class="menu">
+            <span>{{ item.name }}</span>
+        </a>
+    </li>
+</ng-template>
+
+<ng-template #withchildren let-item="item">
+    <li class="withChildren">
+        <a routerLinkActive="active" [routerLink]="[item.route]" class="menu">
+            <span>{{item.name }}</span></a>
+        <ul class="subNavMenu">
+            <ng-container *ngFor="let dropdownItemKey of item.children">
+                <!-- Repeat Menu Item Template For Child Menu Items -->
+                <ng-container *ngIf="dropdownItemKey.children">
+                    <ng-container *ngTemplateOutlet="menuitem; context:{item:dropdownItemKey}">
+                    </ng-container>
+                </ng-container>
+                <!-- List It When Menu Item Doesnt Have Any Children  -->
+                <ng-container *ngIf="!dropdownItemKey.children">
+                    <li class="subNav">
+                        <a class="menu" routerLinkActive="active" [routerLink]="[dropdownItemKey.route]">
+                            <span>{{ dropdownItemKey.name }}</span>
+                        </a>
+                    </li>
+                </ng-container>
+            </ng-container>
+        </ul>
+    </li>
+</ng-template>

@@ -1,6 +1,6 @@
-@import "../../theme/scss/variables";
-@import "../../theme/scss/button";
-@import "../../theme/scss/input";
+@import "../../../theme/variables";
+@import "../../../theme/button";
+@import "../../../theme/input";
 
 .templates {
   .example-1 {
@@ -29,6 +29,8 @@
     .usage {
       display: flex;
       align-items: center;
+      color: $text-color;
+      font-family: $font-family;
       div {
         font-family: $font-family;
         font-size: 14px;

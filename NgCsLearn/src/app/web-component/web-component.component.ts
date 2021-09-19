@@ -17,7 +17,9 @@ export class WebComponentComponent implements OnInit {
     // Convert `CustomElementComponent` to a custom element.
     const PopupElement = createCustomElement(CustomElementComponent, { injector });
     // Register the custom element with the browser.
-    customElements.define('custom-element', PopupElement);
+    if (!customElements.get('custom-element')) {
+      customElements.define('custom-element', PopupElement);
+    }
   }
 
   ngOnInit(): void {

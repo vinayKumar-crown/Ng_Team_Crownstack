@@ -1,9 +1,9 @@
-@import "./scss/variables";
-@import "./scss/accordian";
-@import "./scss/input";
+@import "../../theme/variables";
+@import "../../theme/accordian";
+@import "../../theme/input";
 
 .theme-component {
-  background-color: $body-color;
+  // background-color: $body-color;
   padding: 15px;
   .theme-head {
     h2 {

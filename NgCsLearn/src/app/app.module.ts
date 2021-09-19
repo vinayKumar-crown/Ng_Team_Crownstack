@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import localeEn from '@angular/common/locales/en';
 import localeEs from '@angular/common/locales/es';
 import localeAr from '@angular/common/locales/ar';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localeEn, 'en');
 registerLocaleData(localeEs, 'es');
@@ -22,7 +23,8 @@ registerLocaleData(localeAr, 'ar')
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

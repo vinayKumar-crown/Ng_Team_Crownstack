@@ -1,13 +1,16 @@
-@import "../theme/scss/variables";
+@import "../../theme/variables";
 
 .encapsulation {
   padding: 10px;
+  // background-color: $body-color;
+  // height: 100%;
   h2 {
     font-family: $font-family;
     margin: 8px 0;
     text-align: center;
     border-bottom: 1px solid $body-color;
     padding-bottom: 10px;
+    color: $text-color;
   }
   h4 {
     font-family: $font-family;

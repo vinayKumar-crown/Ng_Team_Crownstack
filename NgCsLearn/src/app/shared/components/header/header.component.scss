@@ -1,0 +1,35 @@
+@import "../../../../theme/variables";
+@import "../../../../theme/input";
+
+.cs-header {
+  height: 60px;
+  background-color: $body-color;
+  color: $text-color;
+  border-bottom: 1px solid $border-color;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0 15px;
+  .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+    .change-theme {
+      font-family: $font-family;
+      font-size: 14px;
+      color: $text-color;
+    }
+  }
+}
+
+.sideNav {
+  position: fixed;
+  top: 60px;
+  left: 0px;
+  height: calc(100% - 60px);
+  width: 250px;
+  border-right: 1px solid $border-color;
+}

@@ -1,9 +1,9 @@
-@import "../theme/scss/variables";
+@import "../../theme/variables";
 
 .dynamic {
-  background-color: $body-color;
+  // background-color: $body-color;
   padding: 15px;
-  height: 100%;
+  // height: 100%;
   .dynamic-head {
     h2 {
       font-family: $font-family;

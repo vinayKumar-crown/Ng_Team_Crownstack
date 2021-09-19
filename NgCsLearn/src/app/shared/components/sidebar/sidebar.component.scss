@@ -1,0 +1,46 @@
+@import "../../../../theme/variables";
+
+@mixin menu() {
+  .menu {
+    padding: 12px;
+    color: $text-color;
+    font-family: $font-family;
+    font-size: 14px;
+    display: inline-block;
+    text-decoration: none;
+    &.active {
+        font-weight: bold;
+    }
+  }
+}
+
+.sidebar-nav {
+  height: 100%;
+  width: 100%;
+  .sidebar-container {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    .menu-container {
+      padding: 0px;
+      margin: 0px;
+      list-style: none;
+      li {
+        &.withoutChildren {
+          @include menu();
+        }
+        &.withChildren {
+          @include menu();
+          .subNavMenu {
+            padding-left: 10px;
+            margin: 0px;
+            list-style: none;
+            .subNav {
+              @include menu();
+            }
+          }
+        }
+      }
+    }
+  }
+}
