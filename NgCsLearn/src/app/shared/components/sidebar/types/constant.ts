@@ -28,5 +28,9 @@ export const sideBarNav = [
                 name: 'User Example'
             }
         ]
-    }
+    },
+    {
+        route: 'conditionally-load',
+        name: 'Conditionally Load'
+    },
 ];

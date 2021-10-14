@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./dynamic-cm/dynamic-cm.module').then(m => m.DynamicCmModule)
   },
   {
+    path: 'conditionally-load',
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+  },
+  {
     path: '',
     redirectTo: 'theme',
     pathMatch: 'full'
