@@ -97,6 +97,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
+              "baseHref": "/Ng_Team_Crownstack/build",
               "budgets": [
                 {
                   "type": "initial",
