@@ -31,6 +31,16 @@ export const sideBarNav = [
     },
     {
         route: 'conditionally-load',
-        name: 'Conditionally Load'
+        name: 'Load Module',
+        children: [
+            {
+                route: 'conditionally-load/route',
+                name: 'By Routing'
+            },
+            {
+                route: 'conditionally-load/component',
+                name: 'By Component'
+            }
+        ]
     },
 ];

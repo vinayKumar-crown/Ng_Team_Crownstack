@@ -19,4 +19,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class UserListOldModule { }
+export class UserListOldModule {}

@@ -24,7 +24,7 @@ const routes: Routes = [
   },
   {
     path: 'conditionally-load',
-    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
+    loadChildren: () => import('./conditional-module/conditional-module.module').then(m => m.ConditionalModuleModule)
   },
   {
     path: '',

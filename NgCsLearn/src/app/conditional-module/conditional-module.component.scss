@@ -1,0 +1,26 @@
+@import "../../theme/variables";
+@import "../../theme/button";
+
+.users {
+  // background-color: $body-color;
+  padding: 15px;
+  // height: 100%;
+  .users-head {
+    h2 {
+      font-family: $font-family;
+      font-size: 22px;
+      text-align: center;
+      margin: 8px 0;
+      color: $text-color;
+    }
+  }
+  .use-cases {
+    margin-bottom: 15px;
+    h3 {
+      font-family: $font-family;
+      font-size: 18px;
+      margin: 8px 0;
+      color: $text-color;
+    }
+  }
+}

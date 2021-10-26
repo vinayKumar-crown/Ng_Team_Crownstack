@@ -1,0 +1,12 @@
+<div class="users">
+    <div class="users-head">
+        <h2>Conditionally Loading Module in Component</h2>
+        <hr />
+    </div>
+    <div class="use-cases">
+        <button *ngIf="!loaded" class="btn btn-primary" (click)="load()">Load Module</button>
+        <div [hidden]="!loaded">
+            <ng-container #anchor></ng-container>
+        </div>
+    </div>
+</div>
