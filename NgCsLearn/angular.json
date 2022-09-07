@@ -186,7 +186,6 @@
       }
     }
   },
-  "defaultProject": "NgCsLearn",
   "cli": {
     "analytics": false
   }
