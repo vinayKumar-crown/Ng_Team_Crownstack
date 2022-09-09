@@ -1,0 +1,173 @@
+<div class="routing">
+    <h2>Routing with Standalone Components</h2>
+    <h3>
+        Adding Standalone Component Route which is not using bootstrapApplication
+    </h3>
+    <pre>
+        {{"
+            // Standalone Component
+            import { CommonModule } from '@angular/common';
+            import { Component } from '@angular/core';
+            import { RouterModule } from '@angular/router';
+
+            @Component({
+                selector: 'app-standalone',
+                standalone: true,
+                imports:[CommonModule,],
+                template : './standalone.component.html',
+                styleUrls: ['./standalone.component.css']
+            })
+            export class StandaloneComponent {
+                title = 'Stand alone component App';
+            }
+
+
+            // App Routing Module without lazy loading Standalone Component
+            const routes: Routes = [
+                {
+                    path: '',
+                    component: StandaloneComponent
+                }
+            ];
+            @NgModule({
+                imports: [RouterModule.forRoot(routes)],
+                exports: [RouterModule]
+            })
+            export class AppRoutingModule { }
+
+
+            // App Routing Module with lazy loading Standalone Component
+            const routes: Routes = [
+                {
+                    path: '',
+                    loadComponent: () => import('./standalone.component').then(m => m.StandaloneComponent)
+                }
+            ];
+            @NgModule({
+                imports: [RouterModule.forRoot(routes)],
+                exports: [RouterModule]
+            })
+            export class AppRoutingModule { }
+        "}}
+    </pre>
+    <h3>
+        Adding Standalone Component Route which is using bootstrapApplication
+    </h3>
+    <pre>
+        {{"
+            // Standalone Component
+            import { CommonModule } from '@angular/common';
+            import { Component } from '@angular/core';
+            import { RouterModule } from '@angular/router';
+
+            @Component({
+                selector: 'app-standalone',
+                standalone: true,
+                imports:[CommonModule,],
+                template : './standalone.component.html',
+                styleUrls: ['./standalone.component.css']
+            })
+            export class StandaloneComponent {
+                title = 'Stand alone component App';
+            }
+
+
+            // Any routing.ts file without lazyloaded Standalone Component
+            export const APP_ROUTES: Routes = [
+                {
+                    path: '',
+                    component: StandaloneComponent
+                },
+                {
+                    path: 'home',
+                    component: StandaloneComponentB
+                }
+            ];
+
+
+            // Any routing .ts file with lazyloaded Standalone Component
+            export const APP_ROUTES: Routes = [
+                {
+                    path: '',
+                    loadComponent: () => import('./standalone.component').then(m => m.StandaloneComponent)
+                },
+                {
+                    path: 'home',
+                    loadComponent: () => import('./standaloneB.component').then(m => m.StandaloneComponentB)
+                }
+            ];
+
+
+            // main.ts file
+            bootstrapApplication(StandaloneComponent,{
+                providers: [
+                  importProvidersFrom(RouterModule.forRoot(APP_ROUTES))]
+            });
+        "}}
+    </pre>
+    <h3>
+        Loading children routes of Standalone Component
+    </h3>
+    <pre>
+        {{"
+            // Main application:
+            export const ROUTES: Route[] = {
+                // Lazy-load the standalone routes.
+                {path: 'standalone', loadChildren: () => import('./standalone/routes').then(mod => mod.STANDALONE_ROUTES)},
+                // ... rest of the routes
+            }
+            
+            // In standalone/routes.ts:
+            export const STANDALONE_ROUTES: Route[] = [{
+                path: '',
+                children: [
+                    {path: 'standalone-a', component: StandaloneComponentA},
+                    {path: 'standalone-b', component: StandaloneComponentB},
+                ],
+            }];
+
+            // In standalone/routes.ts:
+            export const STANDALONE_ROUTES: Route[] = [{
+                {path: 'standalone-a', component: StandaloneComponentA},
+                {path: 'standalone-b', component: StandaloneComponentB},
+            }];
+        "}}
+    </pre>
+    <h3>
+        Adding Dependencies for particular Standalone Route
+    </h3>
+    <pre>
+        {{"
+            // Main application:
+            export const ROUTES: Route[] = {
+                // Lazy-load the standalone routes.
+                {path: 'standalone', loadChildren: () => import('./standalone/routes').then(mod => mod.STANDALONE_ROUTES)},
+                // ... rest of the routes
+            }
+            
+            // In standalone/routes.ts:
+            export const STANDALONE_ROUTES: Route[] = [{
+                path: '',
+                providers: [
+                    Service,
+                    {provide: API_KEY, useValue: 12345},
+                ],
+                children: [
+                    {path: 'standalone-a', component: StandaloneComponentA},
+                    {path: 'standalone-b', component: StandaloneComponentB},
+                ],
+            }];
+
+            // In standalone/routes.ts:
+            export const STANDALONE_ROUTES: Route[] = [{
+                path: 'standalone',
+                providers: [
+                    Service,
+                    {provide: API_KEY, useValue: '12345'},
+                ],
+                {path: 'standalone-a', component: StandaloneComponentA},
+                {path: 'standalone-b', component: StandaloneComponentB},
+            }];
+        "}}
+    </pre>
+</div>

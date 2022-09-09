@@ -43,4 +43,22 @@ export const sideBarNav = [
             }
         ]
     },
+    {
+        route: 'tut-standalone',
+        name: 'Tutorial Standalone',
+        children: [
+            {
+                route: 'tut-standalone/basic',
+                name: 'Basic Standalone Components'
+            },
+            {
+                route: 'tut-standalone/bootstrap',
+                name: 'Bootstrap Application'
+            },
+            {
+                route: 'tut-standalone/routing',
+                name: 'Routing'
+            }
+        ]
+    }
 ];

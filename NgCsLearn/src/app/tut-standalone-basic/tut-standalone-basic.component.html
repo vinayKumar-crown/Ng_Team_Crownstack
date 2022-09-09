@@ -1,0 +1,35 @@
+<div class="basic">
+    <h2>Basics of Standalone Components</h2>
+    <h3>Standlone Component can not be added in NgModule Declarations</h3>
+    <pre>
+        {{"@NgModule({
+            declarations: [
+              StandaloneComponentName // This can not be added in declaration. Angular compiler will give error.
+            ],
+            imports: [
+              CommonModule
+            ]
+          })"}}
+    </pre>
+    <h3>You can add Standalone Component in <i>imports</i> of <i>NgModule</i></h3>
+    <pre>
+        {{"@NgModule({
+            declarations: [],
+            imports: [
+              CommonModule,
+              StandaloneComponentName // This can be added in imports.
+            ]
+          })"}}
+    </pre>
+    <h3>You can add another Standalone Component and Modular Dependencies in Standalone Component like below:</h3>
+    <pre>
+        {{"@Component({
+            selector: 'app-standalone',
+            standalone: true,
+            imports: [CommonModule, ReactiveFormsModule, StandAloneComponentB],
+            templateUrl: './standalone.component.html',
+            styleUrls: ['./standalone.component.css']
+          })
+          export class StandAloneComponentA implements OnInit {...}"}}
+    </pre>
+</div>

@@ -1,0 +1,46 @@
+<div class="boot">
+    <h2>Bootstrapping Application With Standalone Components</h2>
+    <h3>
+        Standalone Components also provide ability to Bootstrapping Application.
+    </h3>
+    <pre>
+        {{"
+            // in the main.ts file
+            import {bootstrapApplication} from '@angular/platform-browser';
+            import {StandaloneComponent} from './app/standalone.component';
+            bootstrapApplication(StandaloneComponent);
+        "}}
+    </pre>
+    <h3>
+        Configure values and services in bootstrapApplication
+    </h3>
+    <pre>
+        {{
+            "
+                bootstrapApplication(StandaloneComponent, {
+                    providers: [
+                        Service,
+                        {provide: BACKEND_URL, useValue: 'https://ul.com'},
+                        // ...
+                    ]
+              });
+            "
+        }}
+    </pre>
+    <h3>
+        Configure Dependencies which are dependent on <i>NgModule</i>
+    </h3>
+    <pre>
+        {{"
+            bootstrapApplication(PhotoAppComponent, {
+                providers: [
+                    {provide: BACKEND_URL, useValue: 'https://ul.com'},
+                    importProvidersFrom(
+                        RouterModule.forRoot([/* app routes */]),
+                    ),
+                    // ...
+                ]
+            });
+        "}}
+    </pre>
+</div>

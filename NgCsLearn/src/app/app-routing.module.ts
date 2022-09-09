@@ -27,6 +27,10 @@ const routes: Routes = [
     loadChildren: () => import('./conditional-module/conditional-module.module').then(m => m.ConditionalModuleModule)
   },
   {
+    path: 'tut-standalone',
+    loadChildren: () => import('../app/shared/types/tut-routes').then(m => m.TutRoutes)
+  },
+  {
     path: '',
     redirectTo: 'theme',
     pathMatch: 'full'
