@@ -109,4 +109,5 @@ const html = `
 
 </html>
 `;
-fs.writeFile('sample.html', html, createPdf);
+fs.writeFileSync('sample.html', html);
+createPdf();
